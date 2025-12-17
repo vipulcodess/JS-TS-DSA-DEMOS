@@ -30,3 +30,28 @@ const inputArray: number[] = [1, 2, 2, 3, 4, 4, 5];
 const result: number[] = removeDuplicates(inputArray);
 
 console.log(result); // Output: [1, 2, 3, 4, 5]
+
+// Expected Output: [1, 2, 3, 4, 5]
+
+// day 3
+
+// Problem Statement
+// Given an array of integers, find the second largest number in the array.
+
+function findSecondLargest(arr: number[]): number | null {
+    if (arr.length < 2) return null;
+
+    let firstLargest = -Infinity;
+    let secondLargest = -Infinity;
+
+    for (const num of arr) {
+        if (num > firstLargest) {
+            secondLargest = firstLargest;
+            firstLargest = num;
+        } else if (num > secondLargest && num !== firstLargest) {
+            secondLargest = num;
+        }
+    }
+
+    return secondLargest === -Infinity ? null : secondLargest;
+} 
